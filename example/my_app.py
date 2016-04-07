@@ -14,5 +14,8 @@ def say_hi():
 def hello_backwards(foo):
     return 'Hello %s' % (foo, )
 
+converter = Converter()
+converter.setup(app)
+
 if __name__ == '__main__':
     app.run()
