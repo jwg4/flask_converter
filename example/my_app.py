@@ -3,6 +3,9 @@ from flask_converter import Converter
 
 app = Flask(__name__)
 
+converter = Converter()
+converter.init_app(app)
+
 def backwards(s):
     return s[::-1]
 
@@ -13,9 +16,6 @@ def say_hi():
 @app.route('/hello/<backwards:foo>/')
 def hello_backwards(foo):
     return 'Hello %s' % (foo, )
-
-converter = Converter()
-converter.setup(app)
 
 if __name__ == '__main__':
     app.run()
