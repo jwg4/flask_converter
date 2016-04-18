@@ -1,4 +1,4 @@
-import my_app
+import app_with_constructor as my_app
 import unittest
 
 class FlaskTestCase(unittest.TestCase):
