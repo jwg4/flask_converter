@@ -11,7 +11,6 @@ def make_converter(fn):
 
 class Converter(object):
     def __init__(self, app=None, **kwargs):
-        self.app = app
         self.converters = { k: make_converter(kwargs[k]) for k in kwargs }
         if app is not None:
             self.init_app()
@@ -21,9 +20,8 @@ class Converter(object):
         self.register_all_known_converters()
 
     def register_all_known_converters(self):
-        if self.app is not None:
-            for k in self.converters:
-                self.app.url_map.converters[k] = self.converters[k]
+        for k in self.converters:
+            self.app.url_map.converters[k] = self.converters[k]
 
     def register(self, name):
         def register_function(fn):
