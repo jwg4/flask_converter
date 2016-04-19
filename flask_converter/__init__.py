@@ -17,6 +17,7 @@ class Converter(object):
             self.init_app()
     
     def init_app(self, app):
+        self.app = app
         self.register_all_known_converters()
 
     def register_all_known_converters(self):
