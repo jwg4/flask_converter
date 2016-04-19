@@ -28,6 +28,6 @@ class Converter(object):
     def register(self, name):
         def register_function(fn):
             self.converters[name] = make_converter(fn)
-            self.register_all_known_converters()
+            self.app.url_map.converters[name] = self.converters[name]
             return fn
         return register_function
